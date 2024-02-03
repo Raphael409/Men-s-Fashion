@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main-product-container">
+    <div class="products-container">
+        {% for product in products.items %}
+        <div class="products ">
+            <div class="product_data">
+                <div class="product_details">
+                    <h4><a href="{{url_for('product', product_id = product.id)}}">{{ product.product_name }}</a></h4>
+                    <img src="static/images/{{product.image_file}}" alt="">
+                    <div class="">
+                        <div class="">
+                            <h6 class="">{{ product.product_type }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="product_details">
+                    <div class="column">
+                        <p class="-content">Now at: €{{product.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        {% for page_num in products.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2 ) %}
+        {% if page_num %}
+        {% if products.page == page_num %}
+        <a class="btn underline btn-outline-info mb-4" href="{{ url_for('products', page=page_num)}}">{{ page_num}}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('products', page=page_num)}}">{{ page_num}}</a>
+        {% endif%}
+        {% else %}
+        ...
+        {% endif%}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

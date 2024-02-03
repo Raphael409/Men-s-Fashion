@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="detailed_product_content">
+    <div class="product_content">
+        {% if current_user.type =='Employee' %}
+        <a href="{{url_for('update_product', product_id = product.id)}}">Update Product</a>
+        <a href="{{url_for('delete_product', product_id = product.id)}}">Delete Product</a>
+
+        {% endif %}
+        {% if current_user.type =='Admin' %}
+        <a href="{{url_for('update_product', product_id = product.id)}}">Update Product</a>
+        <a href="{{url_for('delete_product', product_id = product.id)}}">Delete Product</a>
+
+
+        {% endif %}
+        {% if current_user.type == 'User' %}
+        <a href="{{url_for('buy_product', product_id = product.id)}}">Buy Product</a>
+        {% endif %}
+        <div class="product_title">
+            <h2>{{product.product_name}}</h2>
+        </div>
+        <div class="product_img">
+            <img src="/static/images/{{product.image_file}}" alt="{{product.image_file}}">
+        </div>
+        <div class="product_desc">
+            <p>{{product.description}}</p>
+        </div>
+        <div class="borrow_class">
+            <p>Now at: €{{product.price}}</p>
+        </div>
+        <div class="borrow_class">
+            <p>Type: {{product.product_type}}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

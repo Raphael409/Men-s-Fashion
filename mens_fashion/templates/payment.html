@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="payment carts">
+    {% for product in products %}
+    <div class="item_data">
+        <div class="border">
+            <div class="item_details">
+                {{product.product_name}}
+            </div>
+            <div class="item_details">
+                € {{product.price}}.00
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="pay">
+        <div class="total purchase">
+            Total: € {{total}}.00
+        </div>
+        <div class="confirm-payment purchase">
+            <a href="{{ url_for ('home')}}">Confirm Payment</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Catalogue - Men's Fashion{% endblock %}
+{% block content %}
+<div class="carts">
+    {% for product in products %}
+    <div class="item_data">
+        <div class="border">
+            <div class="item_details">
+                <h4>Product name: </h4> {{product.product_name}}
+            </div>
+            <div class="item_details">
+                <h4>Price: </h4> {{product.price}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="purchase">
+        <a href="{{ url_for ('payment')}}">Puchase Items</a>
+    </div>
+</div>
+{% endblock content %}

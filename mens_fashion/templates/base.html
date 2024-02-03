@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Fashion</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <h2>Men's Fashion</h2>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for ('home')}}">Home</a></li>
+            <li> <a href="{{url_for('products')}}">Products</a></li>
+            <li> <a href="{{url_for('gallery')}}">Gallery</a></li>
+            {% if current_user.type == 'Admin' %}
+            <li> <a href="{{url_for('new_product')}}">Add Product</a></li>
+            <li><a href="{{url_for('purchased')}}">Purchased</a></li>
+            <li> <a href="{{url_for('users')}}">Users</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li> <a href="{{url_for('account')}}">Profile</a></li>
+            <li> <a href="{{url_for('logout')}}">Logout</a></li>
+            <form method="POST" action="{{ url_for('search')}}">
+                {{ form.hidden_tag() }}
+                <input type="search" placeholder="search" name="searched">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            {% elif current_user.type == 'Employee' %}
+            <li><a href="{{url_for('purchased')}}">Purchased</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li> <a href="{{url_for('account')}}">Profile</a></li>
+            <li> <a href="{{url_for('logout')}}">Logout</a></li>
+            <form method="POST" action="{{ url_for('search')}}">
+                {{ form.hidden_tag() }}
+                <input type="search" placeholder="search" name="searched">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            {% elif current_user.type == 'User' %}
+            <li><a href="{{url_for('cat')}}">Cart</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li> <a href="{{url_for('account')}}">Profile</a></li>
+            <li> <a href="{{url_for('logout')}}">Logout</a></li>
+            <form method="POST" action="{{ url_for('search')}}">
+                {{ form.hidden_tag() }}
+                <input type="search" placeholder="search" name="searched">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            {% else %}
+            <li><a href="{{url_for('about')}}">About</a></li>
+            <li> <a href="{{url_for('login')}}">Login</a></li>
+            <form method="POST" action="{{ url_for('search')}}">
+                {{ form.hidden_tag() }}
+                <input type="search" placeholder="search" name="searched">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            {% endif %}
+
+        </ul>
+    </nav>
+    <main>
+        <div class="cont">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="footer-side">
+            <div class="footer-text">
+                Copyright @2023 Men's Fashion
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}" class="my-script"></script>
+</body>
+
+</html>

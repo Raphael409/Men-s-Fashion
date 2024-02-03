@@ -1,0 +1,64 @@
+<!-- This is an account page that displays the details of the current user, either a regular user or Librarian-->
+{% extends "base.html" %}
+{% block content %}
+<div class="login-box">
+    <div class="media">
+        <div class="media-body">
+            <div class="profile-img">
+                <img class="rounded-circle account-img" src="{{ profile_picture }}" alt="">
+            </div>
+            <div class="profile-details">
+                <h2 class="account-heading">{{ current_user.username }}</h2>
+                <p class="text-secondary"> {{ current_user.email }}</p>
+                <p class="text-secondary">{{ current_user.type }}</p>
+            </div>
+        </div>
+        <div class="account-edit flex-column">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="box-form-head">
+                    <p>
+                        Edit Profile
+                    </p>
+                </div>
+                <div class="form-field">
+                    {{form.username.label()}}
+                    {% if form.username.errors %}
+                    {{ form.username() }}
+                    <div>
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.username() }}
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    {{form.password.label()}}
+                    {% if form.password.errors %}
+                    {{ form.password() }}
+                    <div>
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password() }}
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    {{form.picture.label()}}
+                    {{form.picture(class="form-control-file")}}
+                    {% if form.picture.errors %}
+                    {% for error in form.picture.errors %}
+                    <span class="text-danger">{{ error }}</span><br>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </div>
+    {% endblock content %}

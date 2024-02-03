@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Men's Fashion{% endblock %}
+
+{% block content %}
+<div class="box register-box">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="user-box">
+            <div class="box-form-head">
+                <p>
+                    Register now
+                </p>
+            </div>
+            <div class="form-field">
+                {{form.email.label()}}
+                {% if form.email.errors %}
+                {{ form.email() }}
+                <div>
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email() }}
+                {% endif %}
+            </div>
+            <div class="form-field">
+                {{form.username.label()}}
+                {% if form.username.errors %}
+                {{ form.username() }}
+                <div>
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.username() }}
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                {{form.password.label()}}
+                {{form.password()}}
+            </div>
+            <div class="form-field">
+                {{form.confirm_password.label()}}
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password() }}
+                <div>
+                    {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.confirm_password() }}
+                {% endif %}
+            </div>
+            <div class="form-field">
+                {{form.type.label(class="form-control-label")}}
+                {% if form.type.errors %}
+                {{ form.type(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.type.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.type(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        <div class="form-group">
+            Already have an account <a class="ml-2" href="{{ url_for('login') }}">Login in</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}

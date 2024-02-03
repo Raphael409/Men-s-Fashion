@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-box">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            <fieldset class="user-box">
+                <legend class="border-bottom mb-4">Log In</legend>
+                <div class="user-box">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="user-box">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="user-box">
+                    {{ form.remember_password(class="form-check-input") }}
+                    {{ form.remember_password.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        <div class="flex-center flex-colum sign-up">
+            <div class="flex-row">
+                <h4>New User? Register here </h4>
+                <a href="{{url_for('register')}}">Sign Up</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

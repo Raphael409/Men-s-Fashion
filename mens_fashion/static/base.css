@@ -1,0 +1,490 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(40, 42, 43);
+}
+
+nav {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    height: auto(100%- (header+nav+footer));
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: auto;
+    margin-bottom: 50px;
+}
+
+footer {
+    height: 5%;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(40, 42, 43);
+    color: #fff;
+    flex-shrink: 0;
+
+}
+
+.title {
+    padding: 5px;
+}
+
+.title h2 {
+    color: #fff;
+}
+
+
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    min-width: 50px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #000;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: rgb(85, 29, 29);
+    border-bottom: solid 2px #000;
+}
+
+
+
+.cont {
+    width: 100%;
+    height: 100%;
+}
+
+.home_img {
+    width: 100%;
+    background-image: url('/static/images/home_image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_img h4 {
+    height: auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* ------------------------------Box------------------------------------- */
+.box {
+    width: 320px;
+    height: 420px;
+    background: #fff;
+    color: #000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 70px 30px;
+}
+
+.box-form-head {
+    width: auto;
+}
+
+.box-form-head p {
+    font-size: xx-large;
+}
+
+/* ------------------------------Login page------------------------------------- */
+
+.register-box {
+    width: 320px;
+    height: 420px;
+    background: #fff;
+    color: #000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 70px 30px;
+}
+
+.login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-box form .user-box {
+    position: relative;
+    margin: 40px 0px;
+    width: 100%;
+}
+
+.login-box form .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    background: transparent;
+}
+
+.login-box form .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box form .user-box input:focus~label,
+.login-box form .user-box input:valid~label {
+    top: -10px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+}
+
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 0px 20px;
+    color: #03a9f4;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 0px;
+}
+
+.login-box form a:hover {
+    background: #03a9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03a9f4,
+        0 0 25px #03a9f4,
+        0 0 50px
+}
+
+.sign-up {
+    margin-top: 40px;
+}
+
+/* ------------------------------Account page css -------------------------------- */
+
+.media {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+}
+
+.media-body {
+    width: 30%;
+    padding: 20px;
+}
+
+.profile-img {
+    width: 100%;
+}
+
+.profile-img img {
+    border: 1px solid yellow;
+    border-radius: 50%;
+    width: 100px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-edit {}
+
+.form-field {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* ------------------------------About page css -------------------------------- */
+.about-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-desc {
+    width: 50%;
+    text-align: left;
+}
+
+
+.footer-side {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -----------------------------------Products page------------------------- */
+
+.main-product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.products-container {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.products {
+    width: 200px;
+    max-height: 300px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+
+
+}
+
+.product_data {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+
+}
+
+.product_details img {
+    width: 80%;
+    height: 100px;
+}
+
+.border {
+    padding: 20px;
+}
+
+.product_details {
+    width: 100%;
+}
+
+.detailed_product_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.product_content {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product_content img {
+    width: 100%;
+}
+
+.product_img img {
+    width: 100%;
+}
+
+/* ------------------Users page ---------------------------- */
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-class-container {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+    width: 30%;
+    margin: 2px;
+    padding: 2px;
+    color: #030303;
+    text-align: left;
+}
+
+/* ------------------Cart page ---------------------------- */
+.carts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.item_data {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+    width: 30%;
+    margin: 2px;
+    padding: 2px;
+    color: #030303;
+
+}
+
+.item_details {
+    display: flex;
+    flex-direction: row;
+}
+
+.purchase {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+    width: 100px;
+    margin: 20px;
+    padding: 2px;
+    color: #030303;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------- Gallery page ------------------------- */
+.slideshow-container {
+    position: relative;
+    height: 400px;
+    /* adjust as needed */
+}
+
+
+.slideshow-image.active {
+    opacity: 1;
+}
+
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slideshow-image img {
+    height: 100%;
+}
+
+.underline {
+    border: 2px solid black;
+    border-radius: 2px;
+    background-color: #000;
+    color: aliceblue;
+}
